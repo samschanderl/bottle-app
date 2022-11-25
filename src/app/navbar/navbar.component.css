@@ -1,0 +1,27 @@
+#navbar {
+    margin: 0 auto;
+    background: var(--red);
+    color: white;
+}
+
+#navbar .container {
+    display: flex;
+    max-width: var(--max-w);
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#navbar .logo {
+    margin-right: auto;
+}
+
+#navbar .links {
+    display: flex;
+}
+
+#navbar .links li a {
+    margin-right: 10px;
+    color: white;
+}

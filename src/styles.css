@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+/* Global variables */
+
+:root {
+    --red: #a40e4f;
+    --green: #80be3a;
+    --gray: #212528;
+    --light: #f2f3f3;
+    --max-w: 1260px;
+}
+
+/* CSS Reset and basic styling */
+
+body {
+    color: var(--gray);
+    background: var(--light);
+    font-family: 'Titillium Web', sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Global styles */
+
+.btn {
+    padding: 10px;
+    background: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #f2f2f2;
+}
