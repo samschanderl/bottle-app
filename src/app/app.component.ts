@@ -8,7 +8,7 @@ import { BOTTLES } from 'src/mock-bottles';
 })
 export class AppComponent {
   title = 'bottle-app';
-  listView: boolean = false;
+  listView: boolean = true;
   bottles = BOTTLES;
   toggleView(data: boolean) {
     console.log(data)

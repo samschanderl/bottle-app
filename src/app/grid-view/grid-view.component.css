@@ -13,6 +13,8 @@
     background: white;
     width: 200px;
     height: 200px;
+    /* border-left: 2px solid var(--red); */
+    box-shadow: 0 5px 15px 0 rgba(100,100,100,.1)
 }
 
 .bottle-card:hover {
