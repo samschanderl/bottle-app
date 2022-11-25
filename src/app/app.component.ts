@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BOTTLES } from 'src/mock-bottles';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bottle-app';
-  listView = true;
+  listView: boolean = false;
+  bottles = BOTTLES;
+  toggleView(data: boolean) {
+    console.log(data)
+    this.listView = data
+  }
 }

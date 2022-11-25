@@ -1,0 +1,45 @@
+.grid-bottle-view {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    background: white;
+}
+
+.bottle-card {
+    background: white;
+    width: 200px;
+    height: 200px;
+}
+
+.bottle-card:hover {
+    cursor: pointer;
+    background: red;
+    transform: scale(1.01);
+}
+
+.bottle-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    overflow: hidden;
+}
+
+.bottle-img img {
+    object-fit: contain;
+    width: 90%;
+    height: 90%;
+}
+
+@media screen and (max-width: 720px) {
+    .bottle-card {
+        width: 150px;
+        height: 150px;
+    }
+}

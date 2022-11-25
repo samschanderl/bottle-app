@@ -1,0 +1,21 @@
+<ul class="detail-bottle-view">
+    <li *ngFor="let bottle of bottles">
+        <div class="bottle-card">
+          <div class="bottle-img">
+            <img src={{bottle.articles[0].image}} alt="">
+          </div>
+          <div class="bottle-text">
+            <h2 class="bottle-title">{{bottle.name}}</h2>
+            <div class="bottle-details">
+                <div class="bottle-info">
+                    <p>{{bottle.articles[0].shortDescription}}</p>
+                    <p>{{bottle.articles[0].pricePerUnitText}}</p>
+                </div>
+                <div class="bottle-price">
+                    <p>{{bottle.articles[0].price | currency:'EUR'}} Euro</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </li>
+</ul>

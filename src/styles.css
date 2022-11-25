@@ -10,6 +10,7 @@
     --gray: #212528;
     --light: #f2f3f3;
     --max-w: 1260px;
+    --icons-gray: #555;
 }
 
 /* CSS Reset and basic styling */
@@ -20,8 +21,10 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 
-li {
+li, ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -40,4 +43,15 @@ a {
 .btn:hover {
     cursor: pointer;
     background: #f2f2f2;
+}
+
+.btn-light {
+    border: 2px solid var(--light);
+    border-radius: 3px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.icon {
+    color: var(--icons-gray);
 }

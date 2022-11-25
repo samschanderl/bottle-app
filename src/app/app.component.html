@@ -1,3 +1,8 @@
-<app-navbar></app-navbar>
-<div *ngIf=" listView; else gridView" class="container">List View</div>
-<ng-template #gridView class="container">Grid View</ng-template>
+<app-navbar (toggleView)="toggleView($event)" [listView]="listView"></app-navbar>
+<app-filter-menu></app-filter-menu>
+<div *ngIf=" listView; else gridView" class="container">
+  <app-detail-view [bottles]="bottles"></app-detail-view>
+</div>
+<ng-template #gridView class="container">
+  <app-grid-view [bottles]="bottles"></app-grid-view>
+</ng-template>

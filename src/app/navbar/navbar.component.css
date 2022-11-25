@@ -17,11 +17,9 @@
     margin-right: auto;
 }
 
-#navbar .links {
+#navbar button {
     display: flex;
-}
-
-#navbar .links li a {
-    margin-right: 10px;
-    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
