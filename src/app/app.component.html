@@ -1,8 +1,13 @@
 <app-navbar (toggleView)="toggleView($event)" [listView]="listView"></app-navbar>
-<app-filter-menu></app-filter-menu>
+<input (input)="updateSearchString($event)"/>
+<app-filter-menu 
+  (toggleFilter)="toggleFilter($event)"
+  [sortAscending]="sortAscending"
+  [priceHigherThanTwoEuros]="priceHigherThanTwoEuros">
+</app-filter-menu>
 <div *ngIf=" listView; else gridView" class="container">
-  <app-detail-view [bottles]="bottles"></app-detail-view>
+  <app-detail-view [bottles]="sortedAndFilteredBottles"></app-detail-view>
 </div>
 <ng-template #gridView class="container">
-  <app-grid-view [bottles]="bottles"></app-grid-view>
+  <app-grid-view [bottles]="sortedAndFilteredBottles"></app-grid-view>
 </ng-template>

@@ -8,6 +8,7 @@
 }
 
 .filter-menu p {
+    margin: 0;
     margin-right: auto;
     display: flex;
     align-items: center;
@@ -18,4 +19,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+}
+
+.filter-menu button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
 }

@@ -1,7 +1,38 @@
 <div class="filter-menu">
     <p><mat-icon class="icon">tune</mat-icon>Sort & Filter By: </p>
     <div class="filter-buttons">
-        <button class="btn btn-light">Name</button>
-        <button class="btn btn-light">Price > 2</button>
+        <button 
+            *ngIf="sortAscending; else descendingArrow" 
+            class="btn btn-light"
+            (click)="sortByName()">
+            <mat-icon class="icon" >keyboard_arrow_up</mat-icon>
+            Name: A-Z
+        </button>
+        <ng-template #descendingArrow>
+            <button 
+                class="btn btn-light"
+                (click)="sortByName()">
+                <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+                Name: Z-A
+            </button>
+                
+        </ng-template>
+
+        <button 
+            *ngIf="!priceHigherThanTwoEuros; else boxChecked" 
+            class="btn btn-light"
+            (click)="filterByPrice()">
+            <mat-icon class="icon" >check_box_outline_blank</mat-icon>
+            Price: Min. 2€/Liter
+        </button>
+        <ng-template #boxChecked>
+            <button 
+                class="btn btn-light"
+                (click)="filterByPrice()">
+                <mat-icon class="icon">check_box</mat-icon>
+                Price: Min. 2€/Liter
+            </button>
+                
+        </ng-template>
     </div>
 </div>
