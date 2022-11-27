@@ -6,15 +6,18 @@
 
 #navbar .container {
     display: flex;
+    width: var(--rel-w);
     max-width: var(--max-w);
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 #navbar .logo {
     margin-right: auto;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #navbar button {

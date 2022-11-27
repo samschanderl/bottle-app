@@ -1,5 +1,6 @@
 .filter-menu {
-    max-width: 720px;
+    width: var(--rel-w);
+    max-width: var(--max-w);
     margin: 20px auto 10px;
     padding: 20px;
     background: white;
@@ -26,4 +27,15 @@
     align-items: center;
     gap: 5px;
     justify-content: center;
+}
+
+@media screen and (max-width: 720px) {
+    .filter-menu {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .filter-menu p {
+        margin: 10px auto 20px;
+    }
 }

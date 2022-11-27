@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Bottle } from '../bottle'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class BottlesDataService {
 
   constructor(private http : HttpClient) { }
 
-  getBottlesData() {
+  getBottlesData(): Observable<Bottle[]> {
     return this.http.get<Bottle[]>(this._url);
   }
 }

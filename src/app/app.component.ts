@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Bottle } from 'src/bottle';
-import { BOTTLES } from 'src/mock-bottles';
 import { BottlesDataService } from './bottles-data.service';
 
 @Component({
@@ -12,7 +10,6 @@ import { BottlesDataService } from './bottles-data.service';
 export class AppComponent implements OnInit {
 
   title: string = 'bottle-app';
-  searchString: string = '';
   // bottles data
   bottlesArray: Bottle[] = [];
   sortedBottles: Bottle[] = [];
@@ -27,7 +24,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this._bottleDataService.getBottlesData().subscribe(data => 
       {this.bottlesArray = data;
-      console.log(this.bottlesArray);
+        // set the sorted and filtered arrays
       this.sortedBottles = this.sortBottlesByName();
       this.sortedAndFilteredBottles = this.filterBottlesByPrice();})
   }
@@ -45,11 +42,6 @@ export class AppComponent implements OnInit {
     this.sortedAndFilteredBottles = this.filterBottlesByPrice();
   };
 
-  updateSearchString(event: any){
-    this.searchString = event.target.value;
-    // this.sortedAndFilteredBottles = this.filterBottlesBySearchString();
-  }
-
   // sort the bottles array based on ascending or descending filter selected
   sortBottlesByName = () => {
     let bottlesArray = this.bottlesArray.sort((a, b) => {
@@ -65,26 +57,32 @@ export class AppComponent implements OnInit {
     return bottlesArray
   }
 
-  // Filter the sorted array based on price larger than 2 Euros
+  // filter the sorted array based on price larger than 2 Euros
   filterBottlesByPrice = () => {
     if (this.priceHigherThanTwoEuros) {
       return this.sortedBottles.filter(bottle => {
-        // transform price per litre text into float
-        let pricePerLitre = parseFloat(bottle.articles[0].pricePerUnitText.split(' ')[0].slice(1).replace(',', '.'));
-        console.log(pricePerLitre)
-        return pricePerLitre > 2
+        
+        // create empty price array to check for prices of bottle articles
+        let priceArray: Array<number> = [];
+
+        // loop through each article, check liter price, and add to price array
+        bottle.articles.forEach( article => {
+          // transform price per litre text into float for each article and add to array
+          let pricePerLitre = parseFloat(article.pricePerUnitText.split(' ')[0].slice(1).replace(',', '.'));
+          priceArray.push(pricePerLitre);
+        })
+        priceArray.some(el => el > 2) ? console.log(true) : console.log(false);
+        
+        // return true if one of the articles for that bottle is larger than 2
+        if (priceArray.some(el => el > 2)) {
+          return true
+        }
+        else {
+          return false
+        }
       })
     }
     return this.sortedBottles
   }
-
-  // search array for substring
-  // filterBottlesBySearchString = () => {
-  //   return this.sortedAndFilteredBottles.filter(bottle => {
-  //     return bottle.brandName.toLocaleLowerCase === this.searchString.toLocaleLowerCase;
-  //   })
-  // }
-
-  // initialize the sorted and filtered arrays
 
 }

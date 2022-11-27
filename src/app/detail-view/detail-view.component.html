@@ -16,9 +16,7 @@
                   <div class="bottle-price">
                     <p>{{article.price | currency:'EUR'}} Euro</p>
                   </div>
-                  <!-- && article.id !== bottles.articles[bottles.articles.length - 1].id -->
                   <div class="divider" *ngIf="bottle.articles.length > 1 && article.id !== bottle.articles[bottle.articles.length - 1].id"></div>
-                
                 </li>
               </ul>
             </div>

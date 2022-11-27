@@ -1,9 +1,9 @@
 .grid-bottle-view {
     margin: 0 auto;
     padding: 20px;
-    max-width: 720px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    width: var(--rel-w);
+    max-width: var(--max-w);
+    display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;

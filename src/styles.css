@@ -9,11 +9,16 @@
     --green: #80be3a;
     --gray: #212528;
     --light: #f2f3f3;
-    --max-w: 1260px;
     --icons-gray: #555;
+    --max-w: 1260px;
+    --rel-w: 90%;
 }
 
 /* CSS Reset and basic styling */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     color: var(--gray);
