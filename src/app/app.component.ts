@@ -1,22 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Bottle } from 'src/bottle';
 import { BOTTLES } from 'src/mock-bottles';
+import { BottlesDataService } from './bottles-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   title: string = 'bottle-app';
   searchString: string = '';
   // bottles data
-  bottles = BOTTLES;
+  bottlesArray: Bottle[] = [];
+  sortedBottles: Bottle[] = [];
+  sortedAndFilteredBottles: Bottle[] = [];
   // state data
   listView: boolean = true;
   sortAscending: boolean = true;
   priceHigherThanTwoEuros = false;
+
+  constructor(private _bottleDataService: BottlesDataService) {}
+
+  ngOnInit() {
+    this._bottleDataService.getBottlesData().subscribe(data => 
+      {this.bottlesArray = data;
+      console.log(this.bottlesArray);
+      this.sortedBottles = this.sortBottlesByName();
+      this.sortedAndFilteredBottles = this.filterBottlesByPrice();})
+  }
+
   // functions to change state from children components
   toggleView(data: boolean) {
     console.log(data);
@@ -37,7 +52,7 @@ export class AppComponent {
 
   // sort the bottles array based on ascending or descending filter selected
   sortBottlesByName = () => {
-    let bottlesArray = this.bottles.sort((a, b) => {
+    let bottlesArray = this.bottlesArray.sort((a, b) => {
       let textA = a.name.toLocaleLowerCase();
       let textB = b.name.toLocaleLowerCase();
       if (this.sortAscending) {
@@ -71,6 +86,5 @@ export class AppComponent {
   // }
 
   // initialize the sorted and filtered arrays
-  sortedBottles = this.sortBottlesByName();
-  sortedAndFilteredBottles = this.filterBottlesByPrice();
+
 }

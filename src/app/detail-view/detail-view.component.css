@@ -39,9 +39,11 @@
     border-bottom: 1px solid var(--light);
 }
 
-.bottle-details {
+.bottle-options {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 0;
 }
 
 .bottle-info p {
@@ -52,6 +54,15 @@
     font-size: 24px;
     font-weight: bold;
 }
+
+.divider {
+    flex: 1 0 100%;
+    width: 100%;
+    height: 1px;
+    background: var(--light);
+    margin: 5px 0;
+}
+
 
 @media screen and (max-width: 720px) {
     .detail-bottle-view {

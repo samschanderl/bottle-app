@@ -9,6 +9,7 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
 import { FilterMenuComponent } from './filter-menu/filter-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

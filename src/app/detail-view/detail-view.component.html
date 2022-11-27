@@ -7,13 +7,20 @@
           <div class="bottle-text">
             <h2 class="bottle-title">{{bottle.name}}</h2>
             <div class="bottle-details">
-                <div class="bottle-info">
-                    <p>{{bottle.articles[0].shortDescription}}</p>
-                    <p>{{bottle.articles[0].pricePerUnitText}}</p>
-                </div>
-                <div class="bottle-price">
-                    <p>{{bottle.articles[0].price | currency:'EUR'}} Euro</p>
-                </div>
+              <ul>
+                <li class="bottle-options" *ngFor="let article of bottle.articles">
+                  <div class="bottle-info">
+                    <p>{{article.shortDescription}}</p>
+                    <p>{{article.pricePerUnitText}}</p>
+                  </div>
+                  <div class="bottle-price">
+                    <p>{{article.price | currency:'EUR'}} Euro</p>
+                  </div>
+                  <!-- && article.id !== bottles.articles[bottles.articles.length - 1].id -->
+                  <div class="divider" *ngIf="bottle.articles.length > 1 && article.id !== bottle.articles[bottle.articles.length - 1].id"></div>
+                
+                </li>
+              </ul>
             </div>
           </div>
         </div>
