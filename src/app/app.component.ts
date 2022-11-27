@@ -31,11 +31,9 @@ export class AppComponent implements OnInit {
 
   // functions to change state from children components
   toggleView(data: boolean) {
-    console.log(data);
     this.listView = data;
   };
   toggleFilter(data: any) {
-    console.log(data);
     this.sortAscending = data.sortAscending;
     this.priceHigherThanTwoEuros = data.priceHigherThanTwoEuros;
     this.sortedBottles = this.sortBottlesByName();
@@ -45,13 +43,11 @@ export class AppComponent implements OnInit {
   // sort the bottles array based on ascending or descending filter selected
   sortBottlesByName = () => {
     let bottlesArray = this.bottlesArray.sort((a, b) => {
-      let textA = a.name.toLocaleLowerCase();
-      let textB = b.name.toLocaleLowerCase();
       if (this.sortAscending) {
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        return a.articles[0].price - b.articles[0].price
       }
       else {
-        return (textB < textA) ? -1 : (textB > textA) ? 1 : 0;
+        return b.articles[0].price - a.articles[0].price
       }
       })
     return bottlesArray
@@ -72,7 +68,7 @@ export class AppComponent implements OnInit {
           priceArray.push(pricePerLitre);
         })
         priceArray.some(el => el > 2) ? console.log(true) : console.log(false);
-        
+
         // return true if one of the articles for that bottle is larger than 2
         if (priceArray.some(el => el > 2)) {
           return true

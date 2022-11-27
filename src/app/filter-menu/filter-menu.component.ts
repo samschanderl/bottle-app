@@ -7,10 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class FilterMenuComponent implements OnInit{
   @Input() sortAscending: boolean = true;
-  @Input() 
-  priceHigherThanTwoEuros: boolean = false;
-  @Output() 
-  toggleFilter: EventEmitter<any> = new EventEmitter;
+  @Input() priceHigherThanTwoEuros: boolean = false;
+  @Output() toggleFilter: EventEmitter<any> = new EventEmitter;
 
   ngOnInit(): void {
   }

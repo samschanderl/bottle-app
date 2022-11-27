@@ -38,4 +38,8 @@
     .filter-menu p {
         margin: 10px auto 20px;
     }
+
+    .filter-buttons .icon {
+        font-size: 20px;
+    }
 }

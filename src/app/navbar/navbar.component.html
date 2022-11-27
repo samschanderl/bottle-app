@@ -4,10 +4,8 @@
         </div>
         
         <button class="btn" (click)="sendState()">
-            <mat-icon class="icon" *ngIf=" listView ;else toggleOff">toggle_on</mat-icon> 
-            <ng-template #toggleOff><mat-icon class="icon" >toggle_off</mat-icon> </ng-template>
-            
-            Toggle View
+            <p *ngIf=" listView ;else toggleOff"><mat-icon class="icon" >toggle_on</mat-icon> List View</p>
+            <ng-template #toggleOff><p><mat-icon class="icon" >toggle_off</mat-icon>Grid View</p></ng-template>
         </button>
 
     </div>

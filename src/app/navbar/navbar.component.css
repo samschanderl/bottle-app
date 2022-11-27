@@ -20,9 +20,10 @@
     font-weight: bold;
 }
 
-#navbar button {
+#navbar button p {
+    margin: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 5px;
 }
